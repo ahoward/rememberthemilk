@@ -1,0 +1,35 @@
+NAME
+  rememberthemilk.rb
+
+
+DESCRIPTION
+  simple (162 loc), json only, interface to the excellent RememberTheMilk API
+
+    http://www.rememberthemilk.com/services/api/methods/
+
+  supports all methods including the complicated frob/auth get token logic
+
+
+SYNOPSIS
+  config = {
+    :api_key => api_key,
+    :shared_secret => shared_secret,
+    :username => username,
+    :password => password
+  }
+
+  api = RememberTheMilk.new(config)
+
+  token = api.get_token!
+
+  config[:token] = token
+
+  api = RememberTheMilk.new(config)
+
+  jj api.ping
+
+  jj api.call('rtm.tasks.getList')
+
+  jj api.call('rtm.contacts.getList')
+
+  # etc
